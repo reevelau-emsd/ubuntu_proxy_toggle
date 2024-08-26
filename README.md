@@ -81,3 +81,10 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Remarks
+
+Ensure the proxy variables are avaiable when using ```sudo``` by the following command.
+
+```bash
+echo 'Defaults env_keep += "HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy"' | sudo tee -a /etc/sudoers
+```
