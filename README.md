@@ -83,8 +83,17 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## Remarks
 
+### Proxy variables for sudoer
 Ensure the proxy variables are avaiable when using ```sudo``` by the following command.
 
 ```bash
 echo 'Defaults env_keep += "HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy"' | sudo tee -a /etc/sudoers
+```
+
+### Run docker without sudo
+
+```docker``` cli reads config file at `$HOME/.docker/config.json`, so this script reqiures you to add current user to `docker` group.
+
+```bash
+sudo gpasswd -a $USER docker
 ```
