@@ -1,4 +1,4 @@
-# WSL Auto Proxy Configuration Script
+# Ubuntu Proxy Toggle Configuration Script
 
 This repository contains the `proxy_toggle.sh` script designed to help users quickly toggle proxy settings on and off in a Windows Subsystem for Linux (WSL) environment. This script adjusts proxy settings for various development tools and system settings, ensuring easy switching between different networking environments like home and office.
 
