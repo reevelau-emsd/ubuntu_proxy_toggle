@@ -67,11 +67,11 @@ configure_docker_daemon() {
             jq --arg http_proxy "$HTTP_PROXY" \
                 --arg https_proxy "$HTTPS_PROXY" \
                 --arg no_proxy "$NO_PROXY" \
-                '.proxies.default = {"http-proxy": $http_proxy, "https-proxy": $https_proxy, "no-proxy": $no_proxy}' "$DOCKER_DAEMON_CONFIG" | sudo sponge "$DOCKER_DAEMON_CONFIG"
+                '.proxies = {"http-proxy": $http_proxy, "https-proxy": $https_proxy, "no-proxy": $no_proxy}' "$DOCKER_DAEMON_CONFIG" | sudo sponge "$DOCKER_DAEMON_CONFIG"
 
             sudo systemctl restart docker
         else
-            jq 'del(.proxies)' "$DOCKER_DAEMON_CONFIG" > tmp.json | sudo sponge "$DOCKER_DAEMON_CONFIG"
+            jq 'del(.proxies)' "$DOCKER_DAEMON_CONFIG"  | sudo sponge "$DOCKER_DAEMON_CONFIG"
             sudo systemctl restart docker
         fi
     fi
